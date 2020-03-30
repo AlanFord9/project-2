@@ -1,0 +1,28 @@
+
+        <div id="{{postid}}" class="post">
+            <div class="columns">
+                <div id="post-header" class="column has-text-right">
+                  <span id="post-catagory" class="is-pulled-left has-text-left">{{postCatagory}}</span>
+                    <span id="post-date" class="is-pulled-right">Posted: {{postTimestamp}}</span>
+                    <span id="post-title" class="is-pulled-left has-text-left is-size-2">{{PostTitle}}</span>
+
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column is-one-quarter has-text-centered">
+                    <img class="is-pulled-left is-block" id="post-image" src="https://via.placeholder.com/150" alt="" />
+                    <span id="post-username" class="is-block">Posted by: <br />
+                        {{userName}}</span>
+                </div>
+                <div id="post-text" class="column">
+                    <p>
+                        {{postText}}
+                    </p>
+                    {{!-- condense long text blocks and sneak a read more button in here?  --}}
+                    <span class="post-links">
+                        <a href="/post/" + {{this.postid}} + "/comment">Comment</a> ||
+                        <a href="/post/" + {{this.postid}} + "/report">Report</a>
+                    </span>
+                </div>
+            </div>
+        </div>
