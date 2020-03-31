@@ -54,10 +54,47 @@ html {
 #post-image {
   float: left;
   margin-right: 2%;
+  border: 5px groove black;
 }
 .read-more {
   text-shadow: 1px 1px black;
 }
 li {
   border-bottom: 2px solid gray;
+}
+.post {
+  border: 5px groove black;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    315deg,
+    rgba(255, 255, 255, 0.5018207966780462) 0%,
+    rgba(9, 121, 93, 0.4962185557816877) 25%,
+    rgba(255, 255, 255, 0.5018207966780462) 100%
+  );
+  border-radius: 5;
+  float: left;
+  padding: 10px;
+  margin-top: 1%;
+  border-radius: 5px;
+  text-shadow: 0px 0px 1px black;
+  box-shadow: 5px 5px 10px grey;
+  color: black;
+  width: 100%;
+}
+#post-header {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.5018207966780462) 0%,
+    rgba(9, 121, 93, 0.4962185557816877) 25%,
+    rgba(255, 255, 255, 0.5018207966780462) 100%
+  );
+  border-bottom: 2px groove black;
+  font-weight: bolder;
+  float: none;
+}
+.post-links{
+  position: relative;
+  top: auto;
+  color: darkblue;
 }
