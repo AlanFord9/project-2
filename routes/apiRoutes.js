@@ -10,14 +10,16 @@ module.exports = function(app) {
 
   // Create a new example
   app.post("/api/posts", function(req, res) {
-    db.Post.create(req.body).then(function(corona_blog) {
-      res.json(corona_blog);
+    db.Post.create(req.body).then(function(coronaBlog) {
+      res.json(coronaBlog);
     });
   });
 
   // Delete an example by id
   app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
+    db.Example.destroy({ where: { id: req.params.id } }).then(function(
+      dbExample
+    ) {
       res.json(dbExample);
     });
   });
