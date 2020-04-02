@@ -1,6 +1,12 @@
 require("dotenv").config();
 var express = require("express");
+var Handlebars = require("handlebars");
 var exphbs = require("express-handlebars");
+const {
+  allowInsecurePrototypeAccess
+} = require("@handlebars/allow-prototype-access");
+var path = require("path");
+// exphbs.registerPartial("post-block", "{{name}}");
 
 var db = require("./models");
 
@@ -16,7 +22,9 @@ app.use(express.static("public"));
 app.engine(
   "handlebars",
   exphbs({
-    defaultLayout: "main"
+    defaultLayout: "main",
+    partialsDir: path.join(__dirname, "views/partials"),
+    handlebars: allowInsecurePrototypeAccess(Handlebars)
   })
 );
 app.set("view engine", "handlebars");

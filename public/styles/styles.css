@@ -19,6 +19,9 @@ html {
     rgba(71, 91, 161, 1) 76%,
     rgba(255, 255, 255, 1) 100%
   );
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 #body-title {
   color: blueviolet;
@@ -93,7 +96,7 @@ li {
   font-weight: bolder;
   float: none;
 }
-.post-links{
+.post-links {
   position: relative;
   top: auto;
   color: darkblue;

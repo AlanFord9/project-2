@@ -1,4 +1,3 @@
-
 var expect = require("chai").expect;
 
 describe("canary test", function() {

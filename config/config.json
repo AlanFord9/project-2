@@ -1,9 +1,8 @@
-
 {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "exampledb",
+    "password": "D5n6sa4R2211",
+    "database": "corona_blog",
     "host": "localhost",
     "dialect": "mysql"
   },

@@ -1,49 +1,65 @@
-
 <div id="home">
   <div class="container">
     <div class="row">
       <div class="col-8 offset-2">
-        <h2>Welcome to The Social Distance Network!</h2>
-        <form action="action_page.php">
-          <div class="container">
-            <h1>Register</h1>
-            <p>Please fill in this form to create an account, or sign in below.</p>
-            <hr>
-
-            <label for="username"><b>Username</b></label>
-            <input type="text" placeholder="Create Username" name="username" required>
-
-            <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="email" required>
-
-            <label for="city"><b>Your City</b></label>
-            <input type="city" placeholder="Enter City" name="city" required>
-            <hr>
-
-            <button type="submit" class="registerbtn">Register</button>
+        <h1>{{msg}}</h1>
+        <h2>This is our Home Page!</h2>
+        <form class="clearfix mb-4" action="POST">
+          <div class="form-group">
+            <label for="example-text">Example Text</label>
+            <input type="text" id="example-text" class="form-control" aria-describedby="example-text"
+              placeholder="Enter Example Text">
           </div>
-
-          <div class="container signin">
-            <p>Already have an account? Sign in here.</p>
-
-            <form action="action_page.php" method="post">
-              <div class="container">
-
-                <label for="username"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="username" required>
-
-                <label for="city"><b>City</b></label>
-                <input type="city" placeholder="Enter City" name="city" required>
-
-                <button type="submit">Login</button>
-              </div>
-            </form>
+          <div class="form-group">
+            <label for="example-description">Example Description</label>
+            <textarea class="form-control" id="example-description" aria-describedby="example-description"
+              placeholder="Enter Example Description"></textarea>
           </div>
+          <button id="submit" class="btn btn-primary float-right">Submit</button>
         </form>
+        <h3>Examples:</h3>
+        <ul id="example-list" class="list-group">
+          {{#each posts}}
+          {{> post-block}}
+          {{/each}}
+        </ul>
       </div>
     </div>
   </div>
 </div>
+{{!-- <section id="body-content" class="section">
+  <div class="post">
+    <div class="columns">
+      <div id="post-header" class="column  has-text-right">
+        <span id="post-catagory" class="is-pulled-left has-text-left">Catagory: Resources</span>
+        <span id="post-date" class="is-pulled-right">Posted: 3-30-2020 2:10AM</span>
+        <span id="post-title" class="is-pulled-left has-text-left is-size-3">Here's another interesting thing!</span>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column is-one-quarter has-text-centered">
+        <img class="is-pulled-left is-block" id="post-image" src="https://via.placeholder.com/150" alt="" />
+        <span id="post-user" class="is-block">Posted by: <br />
+          Branden Patten</span>
+      </div>
+      <div id="post-body" class="column">
+        <p>
+          this is where the text body with the post goes lorem ipsum
+          herpdy durr.
+        </p>
+        <p>
+          after it gets to a certain length it sh<span class="read-more"><a href="#"> ...Read more...</a></span>
+        </p>
+        <span class="post-links">
+          <a href="#">Comment</a> ||
+          <a href="#">Report</a>
+        </span>
+      </div>
+    </div>
+  </div>
+  {{#each posts/post-block}}
+  {{/each}}
+</section> --}}
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>

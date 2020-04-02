@@ -11,6 +11,7 @@
   },
   "license": "ISC",
   "dependencies": {
+    "@handlebars/allow-prototype-access": "^1.0.3",
     "dotenv": "^8.0.0",
     "express": "^4.17.0",
     "express-handlebars": "^3.1.0",
@@ -24,20 +25,13 @@
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.3.0",
     "eslint-plugin-prettier": "^3.1.0",
+    "handlebars": "^4.5.0",
     "mocha": "^6.1.4",
     "prettier": "^1.17.1"
   },
   "directories": {
     "test": "test"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AlanFord9/project-2.git"
-  },
   "keywords": [],
-  "author": "",
-  "bugs": {
-    "url": "https://github.com/AlanFord9/project-2/issues"
-  },
-  "homepage": "https://github.com/AlanFord9/project-2#readme"
+  "author": ""
 }
