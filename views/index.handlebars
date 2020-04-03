@@ -1,44 +1,63 @@
-
 <div id="home">
   <div class="container">
     <div class="row">
       <div class="col-8 offset-2">
         <h2>Welcome to The Social Distance Network!</h2>
-        <form action="action_page.php">
-          <div class="container">
-            <h1>Register</h1>
-            <p>Please fill in this form to create an account, or sign in below.</p>
-            <hr>
+        <div class="container">
+          <h1>Register</h1>
+          <p>Create an account here - or sign in down there!</p>
+          <hr>
+          <form id="register-form">
+            <label for="username-reg"><b>Username</b></label>
+            <input type="text" id="username-reg" placeholder="Create Username" name="username-reg" required>
 
-            <label for="username"><b>Username</b></label>
-            <input type="text" placeholder="Create Username" name="username" required>
+            <label for="password-reg"><b>Password</b></label>
+            <input type="text" id="password-reg" placeholder="Enter Password" name="password-reg" required>
 
-            <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="email" required>
+            <label for="city-reg"><b>Your City</b></label>
+            <input type="text" id="city-reg" placeholder="Enter City" name="city-reg" required>
 
-            <label for="city"><b>Your City</b></label>
-            <input type="city" placeholder="Enter City" name="city" required>
+            <label for="state-reg"><b>Your State</b></label>
+            <input type="text" id="state-reg" placeholder="Enter State" name="state-reg" required>
             <hr>
 
             <button type="submit" class="registerbtn">Register</button>
-          </div>
+          </form>
+        </div>
 
-          <div class="container signin">
-            <p>Already have an account? Sign in here.</p>
+        <div class="container signin">
+          <p>Already have an account? Sign in here.</p>
+          <div class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Sign In</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form action="action_page.php" method="post" id="login-form">
+                    <div class="container">
 
-            <form action="action_page.php" method="post">
-              <div class="container">
+                      <label for="username"><b>Username</b></label>
+                      <input type="text" id="username" placeholder="Enter Username" name="username" required>
 
-                <label for="username"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="username" required>
+                      <label for="password"><b>Password</b></label>
+                      <input type="password" id="password" placeholder="Enter Password" name="password" required>
 
-                <label for="city"><b>City</b></label>
-                <input type="city" placeholder="Enter City" name="city" required>
-
-                <button type="submit">Login</button>
+                      <button type="submit" class="loginbtn">Login</button>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
               </div>
-            </form>
+            </div>
           </div>
+        </div>
         </form>
       </div>
     </div>
