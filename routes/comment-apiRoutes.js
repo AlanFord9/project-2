@@ -9,7 +9,7 @@ module.exports = function(app) {
   });
 
   // Create a new Comment
-  app.Comment("/api/comments", function(req, res) {
+  app.post("/api/comments", function(req, res) {
     db.Comment.create(req.body).then(function(dbComment) {
       res.json(dbComment);
     });
