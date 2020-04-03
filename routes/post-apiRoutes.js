@@ -2,9 +2,9 @@ var db = require("../models");
 
 module.exports = function(app) {
   // Get all Posts
-  app.get("/api/posts", function(req, res) {
+  app.get("/posts", function(req, res) {
     db.Posts.findAll({}).then(function(dbPosts) {
-      res.json(dbPosts);
+      res.render("citypage", { posts: dbPosts });
     });
   });
 
