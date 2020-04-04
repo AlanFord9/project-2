@@ -1,6 +1,6 @@
 var db = require("../models");
-const NewsAPI = require("newsapi");
-const newsapi = new NewsAPI("d585240049d74c97aabf975b95fe5b55");
+var NewsAPI = require("newsapi");
+var newsapi = new NewsAPI("d585240049d74c97aabf975b95fe5b55");
 
 module.exports = function(app) {
   // Load index page

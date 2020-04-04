@@ -1,5 +1,5 @@
-const NewsAPI = require("newsapi");
-const newsapi = new NewsAPI("d585240049d74c97aabf975b95fe5b55");
+var NewsAPI = require("newsapi");
+var newsapi = new NewsAPI("d585240049d74c97aabf975b95fe5b55");
 
 // To query /v2/everything
 // You must include at least one q, source, or domain
