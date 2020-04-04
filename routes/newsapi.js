@@ -17,7 +17,7 @@ module.exports = function(app) {
       sortBy: "relevancy",
       page: 2
     })
-    .then(Response => {
+    .then.then(function(response) {
       console.log(Response);
       return Response;
     });
