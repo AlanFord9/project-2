@@ -8,7 +8,7 @@
   },
   "test": {
     "username": "root",
-    "password": "D5n6sa4R2211",
+    "password": null,
     "database": "corona_blog",
     "host": "localhost",
     "dialect": "mysql",
