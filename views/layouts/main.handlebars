@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+{{!-- authentication, log-in//register user --}}
 
 <head>
   <meta charset="utf-8">
@@ -9,27 +10,40 @@
   <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
   <title>Social Distance Network</title>
 </head>
-<section id="nav-bar" class="section">
-  <div class="container">
-    <h1 id="nav-title" class="title">
-      Hello World
-    </h1>
-    <p class="subtitle">
-      My first website with <strong>Bulma</strong>!
-    </p>
-    <ul>
-      <li><a href="#">➼ City</a> </li>
-      <li><a href="#">➼ Resources / Supplies</a></li>
-      <li><a href="#">➼ Challenges</a></li>
-      <li><a href="#">➼ Account</a></li>
-    </ul>
+
+<div class="row">
+  <div class="col-sm-2">
+    <section id="nav-bar" class="section">
+      <div class="container">
+        <h1 id="nav-title" class="title">
+          The Social Distance Blog
+        </h1>
+        <p class="subtitle">
+          Stay safe, get what you need, share what you don't.
+        </p>
+        <ul>
+          <li><a href="/">➼ <b>Home</b></a> </li>
+          <li><a href="#">➼ City</a> </li>
+          <li><a href="#">➼ Resources / Supplies</a></li>
+          <li><a href="#">➼ Challenges</a></li>
+          <li><a href="#">➼ Account</a></li>
+          <li><a href="/map">➼ Resource Map</a></li>
+          <li><a href="/news">➼ News</a></li>
+        </ul>
+      </div>
   </div>
+  <div class="col-sm-10">
+    <div class="float-left"> {{{body}}}</div>
+  </div>
+</div>
+
+
 </section>
 
 
-
 <body>
-  {{{body}}}
+
+
 </body>
 
 </html>

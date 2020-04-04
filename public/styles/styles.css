@@ -93,8 +93,21 @@ li {
   font-weight: bolder;
   float: none;
 }
-.post-links{
+.post-links {
   position: relative;
   top: auto;
   color: darkblue;
+}
+.map-container-5 {
+  overflow: hidden;
+  padding-bottom: 48%;
+  position: relative;
+  height: 0;
+}
+.map-container-5 iframe {
+  left: 0;
+  top: 0;
+  height: 80%;
+  width: 80%;
+  position: absolute;
 }
