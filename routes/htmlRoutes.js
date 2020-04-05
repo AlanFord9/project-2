@@ -13,6 +13,9 @@ module.exports = function(app) {
       console.log("rendering index");
     });
   });
+  app.get("/newpost", function(req, res) {
+    res.render("newpost");
+  });
   // Load example page and pass in an example by id
   app.get("/user/:id", function(req, res) {
     db.User.findOne({ where: { id: req.params.id } }).then(function(dbUser) {

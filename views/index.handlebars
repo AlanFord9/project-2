@@ -60,37 +60,44 @@
         </div>
         </form>
         <script>console.log("this before the post")</script>
-        <ul id="example-list" class="list-group">
-          {{#each posts}}
-          <div id="post-{{this.id}}" class="post">
-            <div class="columns">
-              <div id="post-header" class="column has-text-right">
-                <span id="post-catagory" class="is-pulled-left has-text-left">{{this.catagory}}</span>
-                <span id="post-date" class="is-pulled-right">Posted: {{this.createdAt}}</span>
-                <span id="post-title" class="is-pulled-left has-text-left is-size-2">{{this.title}}</span>
+        <div id="new-post">
+          <a href="/newpost">
+            <h3>Create a new post</h3>
+          </a>
+        </div>
+        <div id="posts">
+          <ul id="example-list" class="list-group">
+            {{#each posts}}
+            <div id="post-{{this.id}}" class="post">
+              <div class="columns">
+                <div id="post-header" class="column has-text-right">
+                  <span id="post-catagory" class="is-pulled-left has-text-left">{{this.catagory}}</span>
+                  <span id="post-date" class="is-pulled-right">Posted: {{this.createdAt}}</span>
+                  <span id="post-title" class="is-pulled-left has-text-left is-size-2">{{this.title}}</span>
 
+                </div>
+              </div>
+              <div class="columns">
+                <div class="column is-one-quarter has-text-centered">
+                  <img class="is-pulled-left is-block" id="post-image" src="https://via.placeholder.com/150" alt="" />
+                  <span id="post-username" class="is-block">Posted by: {{this.username}}</span>
+                  <span id="post-location" class="is-block">in: {{this.location}}</span>
+                </div>
+                <div id="post-text" class="column">
+                  <p>
+                    {{this.text}}
+                  </p>
+                  {{!-- condense long text blocks and sneak a read more button in here?  --}}
+                  <span class="post-links">
+                    <a href="/post/{{this.id}}/comment">Comment</a> ||
+                    <a href="/post/{{this.id}}/report">Report</a>
+                  </span>
+                </div>
               </div>
             </div>
-            <div class="columns">
-              <div class="column is-one-quarter has-text-centered">
-                <img class="is-pulled-left is-block" id="post-image" src="https://via.placeholder.com/150" alt="" />
-                <span id="post-username" class="is-block">Posted by: {{this.username}}</span>
-                <span id="post-location" class="is-block">in: {{this.location}}</span>
-              </div>
-              <div id="post-text" class="column">
-                <p>
-                  {{this.text}}
-                </p>
-                {{!-- condense long text blocks and sneak a read more button in here?  --}}
-                <span class="post-links">
-                  <a href="/post/{{this.id}}/comment">Comment</a> ||
-                  <a href="/post/{{this.id}}/report">Report</a>
-                </span>
-              </div>
-            </div>
-          </div>
-          {{/each}}
-        </ul>
+            {{/each}}
+          </ul>
+        </div>
       </div>
     </div>
   </div>
