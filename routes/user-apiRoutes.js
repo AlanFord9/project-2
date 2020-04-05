@@ -2,8 +2,8 @@ var db = require("../models");
 
 module.exports = function(app) {
   // Get all Users
-  app.get("/api/users", function(req, res) {
-    db.User.findAll({}).then(function(dbUsers) {
+  app.get("/users/:id", function(req, res) {
+    db.User.findAll({ where: { id: req.params.id } }).then(function(dbUsers) {
       res.json(dbUsers);
     });
   });
