@@ -1,28 +1,9 @@
 var db = require("../models");
-var passport = require("../config/passport");
-var bcrypt = require("bcryptjs");
-var flash = require("express-flash");
 
-var passport = require("passport");
-// var initializePassport = require("../config/passport");
-// initializePassport(
-//   passport,
-//   function(username) {
-//     users.find(function(user) {
-//       user.username === username;
-//     });
-//   },
-//   function(id) {
-//     users.find(function(user) {
-//       user.id === id;
-//     });
-//   }
-// );
-// https://www.youtube.com/watch?v=-RCnNyD0L-s
-// Video tutorial I refferenced in addition to Roger's to make sense of this.
+// var flash = require("express-flash");
 
-module.exports = function(app) {
-  // Test cases for postit and isAuthenticated middleware
+module.exports = function(app, passport) {
+  // Test cases for post it and isAuthenticated middleware
   //_____________________________________________________________
   // This route gets the request
   app.get("/api/users", function(req, res) {
@@ -47,40 +28,19 @@ module.exports = function(app) {
   // this route is where the login information is posted
   app.post(
     "/login",
-    passport.authenticateUser("local", {
-      successRedirect: "/userpage",
-      failureRedirect: "/login",
-      failureFlash: true
+    passport.authenticate("local-login", {
+      successRedirect: "/",
+      failureRedirect: "/login"
     })
   );
   //_____________________________________________________________
   // The registration route
   app.post(
     "/register",
-    async function(req, res) {
-      console.log(req.body);
-      try {
-        console.log("Before bcrypt");
-        var hashedPassword = await bcrypt.hash(req.body.password, 10);
-        console.log(hashedPassword);
-
-        db.User.create({
-          username: req.body.username,
-          password: hashedPassword,
-          city: req.body.city,
-          state: req.body.state
-        }).then(function(dbUser) {
-          // res.json(dbUser);
-        });
-        res.redirect("/login");
-      } catch {
-        res.redirect("/");
-      }
-    }
-    // passport.authenticate("local-signup", {
-    //   successRedirect: "/userpage",
-    //   failureRedirect: "/index"
-    // })
+    passport.authenticate("local-signup", {
+      successRedirect: "/",
+      failureRedirect: "/index"
+    })
   );
   //_____________________________________________________________
   //  this is used to log out a user
