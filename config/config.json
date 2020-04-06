@@ -1,10 +1,11 @@
-
 {
   "development": {
+
     "username": "g00vqtb94acuj0ic",
     "password": "vslqa846pwc8yzrs",
     "database": "t27nuw7xyg0k3gl2",
     "host": "kil9uzd3tgem3naa.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+
     "dialect": "mysql"
   },
   "test": {

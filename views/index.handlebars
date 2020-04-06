@@ -1,47 +1,140 @@
+{{!-- passport: this is to alert on login --}}
+{{!-- <script>
+  if (messages.error) {
+    messages.error
+  }
+</script> --}}
+
+
 
 <div id="home">
   <div class="container">
     <div class="row">
       <div class="col-8 offset-2">
         <h2>Welcome to The Social Distance Network!</h2>
-        <form action="action_page.php">
-          <div class="container">
-            <h1>Register</h1>
-            <p>Please fill in this form to create an account, or sign in below.</p>
-            <hr>
-
-            <label for="username"><b>Username</b></label>
-            <input type="text" placeholder="Create Username" name="username" required>
-
-            <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="email" required>
-
-            <label for="city"><b>Your City</b></label>
-            <input type="city" placeholder="Enter City" name="city" required>
-            <hr>
-
-            <button type="submit" class="registerbtn">Register</button>
-          </div>
-
-          <div class="container signin">
-            <p>Already have an account? Sign in here.</p>
-
-            <form action="action_page.php" method="post">
-              <div class="container">
-
-                <label for="username"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="username" required>
-
-                <label for="city"><b>City</b></label>
-                <input type="city" placeholder="Enter City" name="city" required>
-
-                <button type="submit">Login</button>
-              </div>
-            </form>
-          </div>
-        </form>
       </div>
     </div>
+    <div class="container">
+      <h1>Register</h1>
+      <p>Create an account here - or sign in down there!</p>
+      <hr>
+      {{!-- <form id="register-form">
+        <label for="username-reg"><b>Username</b></label>
+        <input type="text" id="username-reg" placeholder="Create Username" name="username-reg" required>
+
+        <label for="password-reg"><b>Password</b></label>
+        <input type="text" id="password-reg" placeholder="Enter Password" name="password-reg" required>
+
+        <label for="city-reg"><b>Your City</b></label>
+        <input type="text" id="city-reg" placeholder="Enter City" name="city-reg" required>
+
+        <label for="state-reg"><b>Your State</b></label>
+        <input type="text" id="state-reg" placeholder="Enter State" name="state-reg" required>
+        <hr>
+
+        <button type="submit" class="registerbtn">Register</button>
+      </form> --}}
+      TEST FORM BELOW, SHOULD WORK.
+      <form action="/login" method="POST">
+        <div>
+          <label for="username">username</label>
+          <input type="username" id="username" name="username" required>
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit">Login</button>
+      </form>
+      ___________________________________
+      <form id="register-form" action="/register" method="POST">
+        <label for="username"><b>Username</b></label>
+        <input type="text" id="username" placeholder="Create Username" name="username" required>
+
+        <label for="password"><b>Password</b></label>
+        <input type="password" id="password" placeholder="Enter Password" name="password" required>
+
+        <label for="city"><b>Your City</b></label>
+        <input type="text" id="city" placeholder="Enter City" name="city" required>
+
+        <label for="state"><b>Your State</b></label>
+        <input type="text" id="state" placeholder="Enter State" name="state" required>
+        <hr>
+
+        <button type="submit" class="registerbtn">Register</button>
+      </form>
+      <form action="/api/logout?_method=DELETE">
+        <button type="submit">LOG OUT</button>
+      </form>
+    </div>
+
+    <div class="container signin">
+      <p>Already have an account? Sign in here.</p>
+      <div class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Sign In</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action="action_page.php" method="post" id="login-form">
+                <div class="container">
+
+                  <label for="username"><b>Username</b></label>
+                  <input type="text" id="username" placeholder="Enter Username" name="username" required>
+
+                  <label for="password"><b>Password</b></label>
+                  <input type="password" id="password" placeholder="Enter Password" name="password" required>
+
+                  <button type="submit" class="loginbtn">Login</button>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+        </form>
+        <script>console.log("this before the post")</script>
+        <ul id="example-list" class="list-group">
+          {{#each posts}}
+          <div id="post-{{this.id}}" class="post">
+            <div class="columns">
+              <div id="post-header" class="column has-text-right">
+                <span id="post-catagory" class="is-pulled-left has-text-left">{{this.catagory}}</span>
+                <span id="post-date" class="is-pulled-right">Posted: {{this.createdAt}}</span>
+                <span id="post-title" class="is-pulled-left has-text-left is-size-2">{{this.title}}</span>
+
+              </div>
+            </div>
+            <div class="columns">
+              <div class="column is-one-quarter has-text-centered">
+                <img class="is-pulled-left is-block" id="post-image" src="https://via.placeholder.com/150" alt="" />
+                <span id="post-username" class="is-block">Posted by: {{this.username}}</span>
+                <span id="post-location" class="is-block">in: {{this.location}}</span>
+              </div>
+              <div id="post-text" class="column">
+                <p>
+                  {{this.text}}
+                </p>
+                {{!-- condense long text blocks and sneak a read more button in here?  --}}
+                <span class="post-links">
+                  <a href="/post/{{this.id}}/comment">Comment</a> ||
+                  <a href="/post/{{this.id}}/report">Report</a>
+                </span>
+              </div>
+            </div>
+          </div>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+    </form>
   </div>
 </div>
 
