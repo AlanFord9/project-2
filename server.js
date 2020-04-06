@@ -1,7 +1,33 @@
-require("dotenv").config();
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 var express = require("express");
 var exphbs = require("express-handlebars");
 var db = require("./models");
+var bodyparser = require("body-parser");
+//VVV used in the HTML to foce our log-out button to use a submit method not usually available to form submissions VVV
+var methodOverride = require("method-override");
+//^^^_______________________________________________^^^
+// Express-flash is used to flash messages with passport
+var flash = require("express-flash");
+// Express-session is used to maintain a session
+var session = require("express-session");
+var passport = require("passport");
+
+var initializePassport = require("./config/passport");
+initializePassport(
+  passport,
+  function(username) {
+    users.find(function(user) {
+      user.username === username;
+    });
+  },
+  function(id) {
+    users.find(function(user) {
+      user.id === id;
+    });
+  }
+);
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -10,6 +36,21 @@ var PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
+app.use(bodyparser.urlencoded({ extended: false }));
+app.use(bodyparser.json());
+
+// Authentication middleware
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET || "some secret",
+    resave: false,
+    saveUninitialized: true
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
+app.use(methodOverride("_method"));
 
 // Handlebars
 app.engine(
