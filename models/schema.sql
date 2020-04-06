@@ -1,5 +1,5 @@
 
-DROP DATABASE IF EXISTS corona_blog;
-CREATE DATABASE corona_blog;
+
+Use t27nuw7xyg0k3gl2
 
 
