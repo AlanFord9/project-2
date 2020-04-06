@@ -1,13 +1,12 @@
-var passport = require("passport");
-var LocalStrategy = require("passport-local").Strategy;
-var db = require("../models");
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
+const db = require("../models");
 
 // registration handler
 passport.use(
   "local-signup",
   new LocalStrategy(
     {
-      usernameField: "username",
       passReqToCallback: true
     },
     function(req, username, password, done) {
@@ -37,22 +36,17 @@ passport.use(
 // login handler
 passport.use(
   "local-login",
-  new LocalStrategy(
-    {
-      usernameField: "username"
-    },
-    function(username, password, done) {
-      db.User.findOne({ where: { username: username } }).then(function(user) {
-        if (!user) {
-          return done(null, false, { message: "No Username Found" });
-        }
-        if (!user.verifyPassword(password)) {
-          return done(null, false, { message: "Incorrect password" });
-        }
-        return done(null, user);
-      });
-    }
-  )
+  new LocalStrategy(function(username, password, done) {
+    db.User.findOne({ where: { username: username } }).then(function(user) {
+      if (!user) {
+        return done(null, false, { message: "username incorrect" });
+      }
+      if (!user.verifyPassword(password)) {
+        return done(null, false, { message: "Incorrect password" });
+      }
+      return done(null, user);
+    });
+  })
 );
 
 passport.serializeUser(function(user, done) {

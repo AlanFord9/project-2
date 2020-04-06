@@ -1,3 +1,12 @@
+{{!-- passport: this is to alert on login --}}
+{{!-- <script>
+  if (messages.error) {
+    messages.error
+  }
+</script> --}}
+
+
+
 <div id="home">
   <div class="container">
     <div class="row">
@@ -9,7 +18,7 @@
       <h1>Register</h1>
       <p>Create an account here - or sign in down there!</p>
       <hr>
-      <form id="register-form">
+      {{!-- <form id="register-form">
         <label for="username-reg"><b>Username</b></label>
         <input type="text" id="username-reg" placeholder="Create Username" name="username-reg" required>
 
@@ -24,6 +33,38 @@
         <hr>
 
         <button type="submit" class="registerbtn">Register</button>
+      </form> --}}
+      TEST FORM BELOW, SHOULD WORK.
+      <form action="/login" method="POST">
+        <div>
+          <label for="username">username</label>
+          <input type="username" id="username" name="username" required>
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit">Login</button>
+      </form>
+      ___________________________________
+      <form id="register-form" action="/register" method="POST">
+        <label for="username"><b>Username</b></label>
+        <input type="text" id="username" placeholder="Create Username" name="username" required>
+
+        <label for="password"><b>Password</b></label>
+        <input type="password" id="password" placeholder="Enter Password" name="password" required>
+
+        <label for="city"><b>Your City</b></label>
+        <input type="text" id="city" placeholder="Enter City" name="city" required>
+
+        <label for="state"><b>Your State</b></label>
+        <input type="text" id="state" placeholder="Enter State" name="state" required>
+        <hr>
+
+        <button type="submit" class="registerbtn">Register</button>
+      </form>
+      <form action="/api/logout?_method=DELETE">
+        <button type="submit">LOG OUT</button>
       </form>
     </div>
 
@@ -58,8 +99,6 @@
             </div>
           </div>
         </div>
-<<<<<<< HEAD
-=======
         </form>
         <script>console.log("this before the post")</script>
         <ul id="example-list" class="list-group">
@@ -93,7 +132,6 @@
           </div>
           {{/each}}
         </ul>
->>>>>>> master
       </div>
     </div>
     </form>

@@ -1,0 +1,49 @@
+<div class="container">
+    <h1>Register</h1>
+    <p>Create an account here - or sign in down there!</p>
+    <hr>
+    <form id="register-form">
+        <label for="username-reg"><b>Username</b></label>
+        <input type="text" id="username-reg" placeholder="Create Username" name="username" required>
+        <label for="password-reg"><b>Password</b></label>
+        <input type="password" id="password-reg" placeholder="Enter Password" name="password" required>
+        <label for="city-reg"><b>Your City</b></label>
+        <input type="text" id="city-reg" placeholder="Enter City" name="city" required>
+        <label for="state-reg"><b>Your State</b></label>
+        <input type="text" id="state-reg" placeholder="Enter State" name="state" required>
+        <hr>
+        <button type="submit" class="registerbtn">Register</button>
+    </form>
+</div>
+<div class="container signin">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
+        Click to Sign in
+    </button>
+    <!-- Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Sign In</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        {{!-- <span aria-hidden="true">&times;</span> --}}
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" id="login-form">
+                        <div class="container">
+                            <label for="username"><b>Username</b></label>
+                            <input type="text" id="username" placeholder="Enter Username" name="username">
+                            <label for="password"><b>Password</b></label>
+                            <input type="password" id="password" placeholder="Enter Password" name="password">
+                            <button type="submit" class="loginbtn">Log in</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>

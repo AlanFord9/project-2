@@ -1,17 +1,23 @@
 var db = require("../models");
 var NewsAPI = require("newsapi");
 var newsapi = new NewsAPI("d585240049d74c97aabf975b95fe5b55");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
   // Load index page
-  app.get("/", function(req, res) {
+  app.get("/", isAuthenticated, function(req, res) {
+    console.log(req.user);
     db.Posts.findAll({}).then(function(dbExamples) {
       res.render("index", {
         msg: "Welcome!",
-        posts: dbExamples
+        posts: dbExamples,
+        current_user: req.user
       });
       console.log("rendering index");
     });
+  });
+  app.get("/login", function(req, res) {
+    res.render("login");
   });
   // Load example page and pass in an example by id
   app.get("/user/:id", function(req, res) {
