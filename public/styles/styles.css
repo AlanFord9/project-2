@@ -134,3 +134,7 @@ li {
 .registration {
   float: right;
 }
+
+.modal-backdrop {
+  z-index: 0;
+}
