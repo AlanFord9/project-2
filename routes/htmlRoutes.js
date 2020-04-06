@@ -4,11 +4,11 @@ var newsapi = new NewsAPI("d585240049d74c97aabf975b95fe5b55");
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
-  // Load index page
+  // profile route
   app.get("/", isAuthenticated, function(req, res) {
     console.log(req.user);
     db.Posts.findAll({}).then(function(dbExamples) {
-      res.render("index", {
+      res.render("pages/index", {
         msg: "Welcome!",
         posts: dbExamples,
         current_user: req.user
@@ -16,21 +16,29 @@ module.exports = function(app) {
       console.log("rendering index");
     });
   });
+
+  // display loginand registration
   app.get("/login", function(req, res) {
-    res.render("login");
+    res.render("pages/login");
   });
-  // Load example page and pass in an example by id
-  app.get("/user/:id", function(req, res) {
+
+  // city feed
+  app.get("/city", function(req, res) {
     db.User.findOne({ where: { id: req.params.id } }).then(function(dbUser) {
-      res.render("example", {
+      res.render("pages/citypage", {
         // example: dbExample
       });
     });
   });
-  // Render 404 page for any unmatched routes
+
+  // resources map
   app.get("/map", function(req, res) {
-    res.render("map");
+    res.render("pages/map", {
+      current_user: req.user
+    });
   });
+
+  // news page
   app.get("/news", function(req, res) {
     newsapi.v2
       .everything({
@@ -46,10 +54,12 @@ module.exports = function(app) {
         page: 2
       })
       .then(function(response) {
-        res.render("news", { news: response.articles });
+        res.render("pages/news", { news: response.articles });
       });
   });
+
+  // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
-    res.render("404");
+    res.render("pages/404");
   });
 };
