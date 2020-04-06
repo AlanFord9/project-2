@@ -4,6 +4,7 @@ var db = require("../models");
 
 module.exports = function(app, passport) {
   // Test cases for post it and isAuthenticated middleware
+
   //_____________________________________________________________
   // This route gets the request
   app.get("/api/users", function(req, res) {
