@@ -17,11 +17,55 @@
                 frameborder="0"
                 style="border:0"
                 allowfullscreen
-              ></iframe>
-            </div>
+              >            
+            </iframe>
+    </div>
+    <div class="row">
+      <div>
+
+        <ul id="news-list" class="list-group">
+          <% 
+          console.log(news[0])
+          console.log(news[0].source)
+           %>
+      <% for( var i=0; i < news.length; i++) {%> 
+        
+        <div id="news-<%= news[i].source.id %>" class="post">
+          <div class="columns">
+              <div id="news-header" class="column has-text-right">
+                  <span id="news-catagory" class="is-pulled-left has-text-left"><%= news[i].catagory %></span>
+                  <span id="newst-date" class="is-pulled-right">Posted: <%= news[i].publishedAt %></span>
+                  <a href="<%= news[i].url %>">
+                  <span id="news-title" class="is-pulled-left has-text-left is-size-2"><%= news[i].title %></span>
+                  </a>
+
+              </div>
           </div>
-        </div>
+          <div class="columns">
+              <div class="column is-one-quarter has-text-centered">
+                  <img class="is-pulled-left is-block" id="post-image" src="<%= news[i].urlToImage %>"
+                      alt="News Thumbnail Icon" />
+                  <span id="news-username" class="is-block">Source: <%= news[i].source.name %></span>
+                  <span id="news-author" class="is-block">by: <%= news[i].author %></span>
+                  
+              </div>
+              <div id="news-text" class="column">
+                  <p>
+                    <span id="news-description" class="is-block">description: <%= news[i].description %></span>
+                  </p>
+              </div>
+          </div>
       </div>
+      
+        <%} %>
+
+
+      </ul>
+    </div>
+    </div>
+  </div>
+</div>
+</div>
     </div>
   </div>
 </html>

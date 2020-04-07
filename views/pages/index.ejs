@@ -1,25 +1,37 @@
 <!DOCTYPE html>
 <html>
-<%- include ('../partials/head') %>
-<div class="container-fluid">
-  <div class="row">
-    <%- include ('../partials/nav') %>
-    <div class="col-sm-10  body-content">
-      <div class="float-left">
-        <!-- content -->
-            <div class="row">
-              <div class="col-8 offset-2">
-                <h2>Welcome to The Social Distance Network!</h2>
-              </div>
+  <%- include ('../partials/head') %>
+  <div class="container-fluid">
+    <div class="row">
+      <%- include ('../partials/nav') %>
+      <div class="col-sm-10  body-content">
+        <div class="float-left">
+          <!-- content -->
+          <div class="row">
+            <div class="col-8 offset-2">
               <div id="user-info">
-                <h5>Username: </h5> <%= current_user.username %>
-                <h5>City: </h5> <%= current_user.city %>
-                <h5>State: </h5> <%= current_user.state %>
+                <div class="post">
+                  <h2>
+                    Welcome to The Social Distance Network, <%=
+                    current_user.username %>!
+                  </h2>
+                  <br />
+                  <h2>
+                    You're posting from <%= current_user.city +", "+
+                    current_user.state %>!
+                  </h2>
+                  <br />
+                  <h2>Stay safe!</h2>
+
+                  <form action="api/logout" method="post">
+                    <button type="submit">LOG OUT</button>
+                  </form>
+                </div>
               </div>
             </div>
-      </div> 
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-
 </html>
