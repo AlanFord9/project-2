@@ -22,17 +22,11 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT,
       allowNull: false,
       defaultValue: "N/A",
-      validate: {
-        len: [1, 240]
-      }
     },
     location: {
       type: DataTypes.TEXT,
       allowNull: false,
       defaultValue: "N/A",
-      validate: {
-        len: [1, 240]
-      }
     }
   });
 
