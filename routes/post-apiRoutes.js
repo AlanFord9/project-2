@@ -3,7 +3,7 @@ var db = require("../models");
 module.exports = function(app) {
   // Get all Posts
   app.get("/posts", function(req, res) {
-    db.Posts.findAll({}).then(function(dbPosts) {
+    db.Posts.findAll({ order: '"updatedAt" DESC'}).then(function(dbPosts) {
       res.render("pages/citypage", { posts: dbPosts });
     });
   });
