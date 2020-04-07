@@ -33,12 +33,6 @@ module.exports = function(app) {
   });
 
 
-  // resources map
-  app.get("/map", isAuthenticated, function(req, res) {
-    res.render("pages/map", {
-      current_user: req.user
-    });
-  });
 
   // news page
   app.get("/map", isAuthenticated, function(req, res) {
@@ -56,9 +50,17 @@ module.exports = function(app) {
         page: 2
       })
       .then(function(response) {
-        res.render("pages/news", { news: response.articles });
+        res.render("pages/map", {
+        current_user: req.user,
+        news: response.articles });
       });
 
+  });
+  // resources map
+  app.get("/map", isAuthenticated, function(req, res) {
+    res.render("pages/map", {
+      current_user: req.user
+    });
   });
 
   // Render 404 page for any unmatched routes

@@ -244,9 +244,6 @@ li {
   border: 5px groove black;
   border-radius: 5px;
 }
-#handlebars-body {
-  margin-bottom: 2%;
-}
 #nav-subtitle {
   padding-bottom: 1em;
   border-bottom: 5px groove black;
@@ -257,4 +254,10 @@ li {
 
 .modal-backdrop {
   z-index: 0;
+}
+.row {
+  width: 100%;
+}
+.create-post{
+  width: auto;
 }
