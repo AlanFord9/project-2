@@ -111,3 +111,6 @@ li {
   width: 80%;
   position: absolute;
 }
+.modal-backdrop {
+  z-index: 0
+}

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-  <% include../partials/head %>
+<%- include ('../partials/head') %>
 
   <div class="container">
     <div class="row">
-      <% include../partials/nav %>
+    <%- include ('../partials/nav') %>
       <div class="col-sm-10">
         <div class="float-left">
           <!-- content -->
@@ -12,15 +12,58 @@
             <div class="row">
               <div class="col-8 offset-2">
                 <h2>Check out what's going on in your city!</h2>
-                {{ posts }}
+                    <div class="container post">
+                        <p>Create a post <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#postModal">here!</button></p>
+                        <!-- Modal -->
+                        <div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-labelledby="postModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="postModalLabel">Add to your city page!</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <!-- {{!-- <span aria-hidden="true">&times;</span> --}} -->
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form method="post" id="post-form">
+                                            <div class="container">
+                                                <label for="title"><b>Title</b></label>
+                                                <input type="text" id="title" placeholder="Enter title" name="title">
+                                                <hr>
+                                                <label for="text"><b>Content</b></label>
+                                                <textarea type="text" rows="4" cols="50" id="text" placeholder="Type here..." name="text"></textarea>
+                                                <hr>
+                                                <label for="category">Choose a category:</label>
+                                                
+                                                <select id="category">
+                                                    <option value="volvo">Fun</option>
+                                                    <option value="saab">Resource</option>
+                                                    <option value="opel">News</option>
+                                                </select>
+                                                <button type="submit" class="postbtn">Submit</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="post-display">
+                        <% for( var i=0; i < post.length; i++) { %>
+                            <%if (post[i].location === current_user.city) {%>
+                                <p> <%= post[i].title %> </p>
+                            <%}} %>
+                    </div>
               </div>
+            <div>
+
             </div>
           </div>
-          <script
-            type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
-          ></script>
-          <script src="/js/index.js"></script>
         </div>
       </div>
     </div>

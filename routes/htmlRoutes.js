@@ -23,23 +23,24 @@ module.exports = function(app) {
   });
 
   // city feed
-  app.get("/city", function(req, res) {
-    db.User.findOne({ where: { id: req.params.id } }).then(function(dbUser) {
+  app.get("/city", isAuthenticated, function(req, res) {
+    db.Posts.findAll({ where: { location: req.user.city } }).then(function(posts) {
       res.render("pages/citypage", {
-        // example: dbExample
+        current_user: req.user,
+        post: posts
       });
     });
   });
 
   // resources map
-  app.get("/map", function(req, res) {
+  app.get("/map", isAuthenticated, function(req, res) {
     res.render("pages/map", {
       current_user: req.user
     });
   });
 
   // news page
-  app.get("/news", function(req, res) {
+  app.get("/map", isAuthenticated, function(req, res) {
     newsapi.v2
       .everything({
         q: "covid-19",
