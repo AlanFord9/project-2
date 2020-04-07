@@ -1,4 +1,4 @@
-var db = require("../models");
+// var db = require("../models");
 
 // var flash = require("express-flash");
 
