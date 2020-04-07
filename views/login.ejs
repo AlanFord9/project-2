@@ -1,0 +1,198 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/styles/styles.css"
+      media="screen"
+      title="no title"
+      charset="utf-8"
+    />
+    <title>Social Distance Network</title>
+  </head>
+
+  <body>
+    <!-- content -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3" id="navigation">
+          <h1 class="title">
+            The Social Distance Blog
+          </h1>
+          <p class="subtitle" id="nav-subtitle">
+            Stay safe, get what you need, share what you don't.
+          </p>
+          <ul>
+            <li>
+              <a href="/">➼ <b>Home</b></a>
+            </li>
+            <li><a href="#">➼ City</a></li>
+            <li><a href="#">➼ Resources / Supplies</a></li>
+            <li><a href="#">➼ Challenges</a></li>
+            <li><a href="#">➼ Account</a></li>
+            <li><a href="/map">➼ Resource Map</a></li>
+            <li><a href="/news">➼ News</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-9" class="handlebars-body">
+          <div>
+            <div class="container">
+              <hr />
+              <div class="row" id="register-form-div">
+                <div class="col-sm-12">
+                  <div class="row">
+                    <h1 class="title text-center">Sign up here!</h1>
+                    <hr />
+                  </div>
+                  <div class="row">
+                    <form id="register-form">
+                      <label for="username-reg"><b>Username</b></label>
+                      <input
+                        class="registration"
+                        type="text"
+                        id="username-reg"
+                        placeholder="Create Username"
+                        name="username"
+                        required
+                      />
+                      <br />
+                      <label for="password-reg"><b>Password</b></label>
+                      <input
+                        class="registration"
+                        type="password"
+                        id="password-reg"
+                        placeholder="Enter Password"
+                        name="password"
+                        required
+                      />
+                      <br />
+                      <label for="city-reg"><b>Your City</b></label>
+                      <input
+                        class="registration"
+                        type="text"
+                        id="city-reg"
+                        placeholder="Enter City"
+                        name="city"
+                        required
+                      />
+                      <br />
+                      <label for="state-reg"><b>Your State</b></label>
+                      <input
+                        class="registration"
+                        type="text"
+                        id="state-reg"
+                        placeholder="Enter State"
+                        name="state"
+                        required
+                      />
+                      <br />
+                      <button
+                        type="submit"
+                        action="/register"
+                        class="registerbtn"
+                      >
+                        Register
+                      </button>
+                    </form>
+                  </div>
+                  <p><b>Create an account here - or sign</b></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- modal sign in -->
+            <div class="container signin">
+              <hr class="border-bottom" />
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-toggle="modal"
+                data-target="#loginModal"
+              >
+                Click to Sign in
+              </button>
+              <!-- Modal -->
+              <div
+                class="modal fade"
+                id="loginModal"
+                tabindex="1"
+                role="dialog"
+                aria-labelledby="loginModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="loginModalLabel">Sign In</h5>
+                      <button
+                        type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <form method="post" id="login-form">
+                        <div class="container">
+                          <label for="username"><b>Username</b></label>
+                          <input
+                            type="text"
+                            id="username"
+                            placeholder="Enter Username"
+                            name="username"
+                          />
+                          <label for="password"><b>Password</b></label>
+                          <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter Password"
+                            name="password"
+                          />
+                          <button type="submit" class="loginbtn">Log in</button>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
