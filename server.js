@@ -31,8 +31,8 @@ app.set("view engine", "ejs");
 
 // Routes
 require("./routes/user-apiRoutes")(app, passport);
-require("./routes/post-apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+require("./routes/post-apiRoutes")(app, passport);
+require("./routes/htmlRoutes")(app, passport);
 
 var syncOptions = { force: false };
 
