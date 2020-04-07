@@ -111,3 +111,150 @@ li {
   width: 80%;
   position: absolute;
 }
+.modal-backdrop {
+  z-index: 0
+}
+
+body {
+  background-color: transparent;
+}
+.list-group-item {
+  line-height: 2.5;
+}
+#nav-bar {
+  background-color: aliceblue;
+  float: left;
+  height: 100vh;
+  width: 10vw;
+}
+html {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    30deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(99, 9, 121, 1) 17%,
+    rgba(135, 65, 152, 1) 30%,
+    rgba(151, 173, 198, 1) 48%,
+    rgba(167, 116, 179, 1) 63%,
+    rgba(71, 91, 161, 1) 76%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}
+.container-fluid{
+  padding: 0;
+}
+#body-title {
+  color: blueviolet;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(9, 121, 107, 1) 25%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  text-shadow: 3px 3px black;
+}
+#navigation {
+  border: 5px groove black;
+  color: blueviolet;
+  background: rgb(198, 247, 247);
+  border-radius: 5;
+  color: white;
+  font-weight: bolder;
+  float: left;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px grey;
+  height: 100vh;
+  max-width: 250px;
+  position: sticky;
+  top: 0px;
+}
+#post-image {
+  float: left;
+  margin-right: 2%;
+  border: 5px groove black;
+}
+.read-more {
+  text-shadow: 1px 1px black;
+}
+li {
+  border-bottom: 2px solid gray;
+}
+.post {
+  border: 5px groove black;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    315deg,
+    rgba(255, 255, 255, 0.5018207966780462) 0%,
+    rgba(9, 121, 93, 0.4962185557816877) 25%,
+    rgba(255, 255, 255, 0.5018207966780462) 100%
+  );
+  border-radius: 5;
+  float: left;
+  padding: 10px;
+  margin-top: 1%;
+  border-radius: 5px;
+  text-shadow: 0px 0px 1px black;
+  box-shadow: 5px 5px 10px grey;
+  color: black;
+  width: 100%;
+}
+#post-header {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.5018207966780462) 0%,
+    rgba(9, 121, 93, 0.4962185557816877) 25%,
+    rgba(255, 255, 255, 0.5018207966780462) 100%
+  );
+  border-bottom: 2px groove black;
+  font-weight: bolder;
+  float: none;
+}
+.post-links {
+  position: relative;
+  top: auto;
+  color: darkblue;
+}
+.map-container-5 {
+  overflow: hidden;
+  padding-bottom: 48%;
+  position: relative;
+  height: 0;
+}
+.map-container-5 iframe {
+  left: 5%;
+  top: 5%;
+  height: 80%;
+  width: 80%;
+  position: absolute;
+}
+.modal-backdrop .fade .in {
+  z-index: 10;
+}
+#register-form-div {
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.5018207966780462) 0%,
+    rgba(9, 121, 93, 0.4962185557816877) 25%,
+    rgba(255, 255, 255, 0.5018207966780462) 100%
+  );
+  padding: 1%;
+  border: 5px groove black;
+  border-radius: 5px;
+}
+#handlebars-body {
+  margin-bottom: 2%;
+}
+#nav-subtitle {
+  padding-bottom: 1em;
+  border-bottom: 5px groove black;
+}
+.registration {
+  float: right;
+}
+
+.modal-backdrop {
+  z-index: 0;
+}
