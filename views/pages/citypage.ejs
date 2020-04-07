@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<%- include ('../partials/head') %>
+
+  <div class="container-fluid">
+    <div class="row">
+    <%- include ('../partials/nav') %>
+      <div class="col-sm-10 body-content">
+        <div class="float-left">
+          <!-- content -->
+          <div id="city-page">
+            <div class="row">
+              <div class="col-8 offset-2">
+                <h2>Check out what's going on in your city!</h2>
+                    <div class="container post">
+                        <p>Create a post <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#postModal">here!</button></p>
+                        <!-- Modal -->
+                        <div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-labelledby="postModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="postModalLabel">Add to your city page!</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <!-- {{!-- <span aria-hidden="true">&times;</span> --}} -->
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form method="post" id="post-form">
+                                            <div class="container">
+                                                <label for="title"><b>Title</b></label>
+                                                <input type="text" id="title" placeholder="Enter title" name="title">
+                                                <hr>
+                                                <label for="text"><b>Content</b></label>
+                                                <textarea type="text" rows="4" cols="50" id="text" placeholder="Type here..." name="text"></textarea>
+                                                <hr>
+                                                <label for="category">Choose a category:</label>
+                                                
+                                                <select id="category">
+                                                    <option value="volvo">Fun</option>
+                                                    <option value="saab">Resource</option>
+                                                    <option value="opel">News</option>
+                                                </select>
+                                                <button type="submit" action="/api/posts" formmethod="post" class="postbtn"> Submit</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="post-display">
+                      <% console.log(post) %>
+                        <% for( var i=0; i < post.length; i++) {%>
+                            <%if (post[i].location === current_user.city) {%>
+                                <p><%= post[i].title %></p>
+                                <div id="post-<%= post[i].id %>" class="post">
+                                  <div class="columns">
+                                    <div id="post-header" class="column has-text-right">
+                                       <span id="post-catagory" class="is-pulled-left has-text-left"><%= post[i].category %></span>
+                                       <span id="post-date" class="is-pulled-right">Posted: <%= post[i].createdAt %></span>
+                                       <span id="post-title" class="is-pulled-left has-text-left is-size-2"><%= post[i].title %></span>
+
+                                       </div>
+                                       </div>
+                                       <div class="columns">
+                                        <div class="column is-one-quarter has-text-centered">
+                                          <img class="is-pulled-left is-block" id="post-image" src="https://via.placeholder.com/150" alt="" />
+                                          <span id="post-username" class="is-block">Posted by: <%= post[i].username %></span>
+                                          <span id="post-location" class="is-block">in: <%= post[i].location %></span>
+                                          </div>
+                                          <div id="post-text" class="column">
+                                            <p>
+                                          <%= post[i].text %>
+                                          </p>
+                                          </div>
+                                          </div>
+                                          </div>
+                                
+
+
+                            <%}} %>
+                    </div>
+              </div>
+            <div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</html>

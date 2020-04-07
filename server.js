@@ -27,13 +27,11 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// ejs
 app.set("view engine", "ejs");
 
 // Routes
 require("./routes/user-apiRoutes")(app, passport);
 require("./routes/post-apiRoutes")(app);
-require("./routes/comment-apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
 var syncOptions = { force: false };
