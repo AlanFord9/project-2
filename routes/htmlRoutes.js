@@ -32,6 +32,7 @@ module.exports = function(app) {
     });
   });
 
+
   // resources map
   app.get("/map", isAuthenticated, function(req, res) {
     res.render("pages/map", {
@@ -57,6 +58,7 @@ module.exports = function(app) {
       .then(function(response) {
         res.render("pages/news", { news: response.articles });
       });
+
   });
 
   // Render 404 page for any unmatched routes

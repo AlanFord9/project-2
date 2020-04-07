@@ -32,7 +32,7 @@ describe("GET /posts", function() {
       }
     ]).then(function() {
       // Request the route that returns all examples
-      request.get("/posts").end(function(err, res) {
+      request.get("/city").end(function(err, res) {
         var responseStatus = res.status;
         var responseBody = res.body;
 

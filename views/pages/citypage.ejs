@@ -27,7 +27,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form method="post" id="post-form">
+                                        <form method="post" id="post-form" action="/posts">
                                             <div class="container">
                                                 <label for="title"><b>Title</b></label>
                                                 <input type="text" id="title" placeholder="Enter title" name="title">
@@ -38,11 +38,20 @@
                                                 <label for="category">Choose a category:</label>
                                                 
                                                 <select id="category">
-                                                    <option value="volvo">Fun</option>
-                                                    <option value="saab">Resource</option>
-                                                    <option value="opel">News</option>
+                                                    <option value="Fun">Fun</option>
+                                                    <option value="Resource">Resource</option>
+                                                    <option value="News">News</option>
                                                 </select>
-                                                <button type="submit" action="/api/posts" formmethod="post" class="postbtn"> Submit</button>
+                                                
+                                                <select id="location" name="location">
+                                                  <option value= "<%= current_user.city %>"> <%= current_user.city %></option>
+                                              </select>
+
+                                              <select id="username" name="username">
+                                                <option value= "<%= current_user.username %>"> <%= current_user.username %></option>
+                                            </select>
+
+                                                <button type="submit" class="postbtn"> Submit</button>
                                             </div>
                                         </form>
                                     </div>
@@ -54,10 +63,10 @@
                         </div>
                     </div>
                     <div id="post-display">
-                      <% console.log(post) %>
+                      <% console.log("current user's city is: " +current_user.city) %>
+                      <% console.log("posts are :" + post) %>
                         <% for( var i=0; i < post.length; i++) {%>
                             <%if (post[i].location === current_user.city) {%>
-                                <p><%= post[i].title %></p>
                                 <div id="post-<%= post[i].id %>" class="post">
                                   <div class="columns">
                                     <div id="post-header" class="column has-text-right">
@@ -80,9 +89,6 @@
                                           </div>
                                           </div>
                                           </div>
-                                
-
-
                             <%}} %>
                     </div>
               </div>
