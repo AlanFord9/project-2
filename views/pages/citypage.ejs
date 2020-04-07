@@ -67,7 +67,6 @@
                       <% console.log("posts are :" + post) %>
                         <% for( var i=0; i < post.length; i++) {%>
                             <%if (post[i].location === current_user.city) {%>
-                                <!-- <p><%= post[i].title %></p> -->
                                 <div id="post-<%= post[i].id %>" class="post">
                                   <div class="columns">
                                     <div id="post-header" class="column has-text-right">
