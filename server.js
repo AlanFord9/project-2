@@ -2,7 +2,7 @@ if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }
 var express = require("express");
-var exphbs = require("express-handlebars");
+// var exphbs = require("express-handlebars");
 var db = require("./models");
 const passport = require("./config/passport.js");
 
@@ -27,13 +27,11 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// ejs
 app.set("view engine", "ejs");
 
 // Routes
 require("./routes/user-apiRoutes")(app, passport);
 require("./routes/post-apiRoutes")(app);
-require("./routes/comment-apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
 var syncOptions = { force: false };
