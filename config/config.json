@@ -1,16 +1,14 @@
 {
   "development": {
     "username": "root",
-
-    "password": "",
-
+    "password": "D5n6sa4R2211",
     "database": "corona_blog",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "YES",
+    "password": null,
     "database": "testdb",
     "host": "localhost",
     "dialect": "mysql",
