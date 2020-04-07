@@ -8,7 +8,7 @@
 
 ### How users can get started with the project
 - Visit the site by clicking [here](https://pacific-sierra-34670.herokuapp.com/)
--Register or log in, and use the navigation on the left to browse your city, as well as news and resources.
+- Register or log in, and use the navigation on the left to browse your city, as well as news and resources.
 
 ### Project maintenance
 - This project is maintained by Branden Patten, Jeff Gunderson, and Alan Ford.
