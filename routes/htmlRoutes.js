@@ -29,25 +29,26 @@ module.exports = function(app) {
   });
   // Render 404 page for any unmatched routes
   app.get("/map", function(req, res) {
-    res.render("map");
+    newsapi.v2
+    .everything({
+      q: "covid-19",
+      sources:
+        "buzzfeed, abc-news, associated-press, axios, cbs-news, cnn, fox-news" /*google-news*/,
+      domains:
+        "buzzfeed.com, abcnews.go.com, axios, apnews.com, cbsnews.com, cnbc.com, cnn.com, foxnews.com", // news.google.com
+      from: Date.now(),
+      to: Date.now(),
+      language: "en",
+      sortBy: "relevancy",
+      page: 2
+    })
+    .then(function(response) {
+      res.render("map", { news: response.articles });
+    });
+
   });
   app.get("/news", function(req, res) {
-    newsapi.v2
-      .everything({
-        q: "covid-19",
-        sources:
-          "buzzfeed, abc-news, associated-press, axios, cbs-news, cnn, fox-news" /*google-news*/,
-        domains:
-          "buzzfeed.com, abcnews.go.com, axios, apnews.com, cbsnews.com, cnbc.com, cnn.com, foxnews.com", // news.google.com
-        from: Date.now(),
-        to: Date.now(),
-        language: "en",
-        sortBy: "relevancy",
-        page: 2
-      })
-      .then(function(response) {
-        res.render("news", { news: response.articles });
-      });
+
   });
   app.get("*", function(req, res) {
     res.render("404");
